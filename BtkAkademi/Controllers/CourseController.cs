@@ -20,7 +20,7 @@ namespace BtkAkademi.Controllers
         public IActionResult Apply([FromForm] Candidate candidate)
         {
             Repository.Add(candidate);
-            return Redirect("/");
+            return View("Feedback", candidate);
         }
     }
 }
