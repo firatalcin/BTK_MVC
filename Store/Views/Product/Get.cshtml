@@ -1,4 +1,4 @@
-﻿@model List<Store.Models.Product>
+﻿@model Store.Models.Product
 
 <!doctype html>
 <html lang="en">
@@ -10,13 +10,8 @@
     <title>Document</title>
 </head>
 <body>
-@foreach (var prd in Model)
-{
-    <h3>@prd.Name</h3>
-    <p>@prd.Price</p>
-    <p>
-        <a href="/Product/Get/@prd.Id">Get Detail</a>
-    </p>
-}
+<h3>@Model.Name</h3>
+<p>@Model.Price</p>
+<a href="/Product">Products</a>
 </body>
 </html>
