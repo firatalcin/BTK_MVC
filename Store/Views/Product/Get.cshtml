@@ -1,17 +1,13 @@
-﻿@model Store.Models.Product
+﻿@model Product
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
 <h3>@Model.Name</h3>
 <p>@Model.Price</p>
 <a href="/Product">Products</a>
-</body>
-</html>
+
+
+@section Header
+{
+    <div>
+        Header for Only Get
+    </div>
+}
