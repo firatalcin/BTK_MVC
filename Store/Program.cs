@@ -10,12 +10,12 @@ builder.Services.AddDbContext<RepositoryContext>(opt =>
 var app = builder.Build();
 
 
-
+app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseRouting();
 
 app.MapControllerRoute(
-    "default", 
+    "default",
     "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
