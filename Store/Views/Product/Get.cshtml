@@ -2,7 +2,11 @@
 
 <h3>@Model.Name</h3>
 <p>@Model.Price</p>
-<a href="/Product">Products</a>
+
+<div class="btn-group">
+    <a class="btn btn-primary" asp-controller="Product" asp-action="Index">Products</a>
+    <a class="btn btn-outline-light" asp-controller="Home" asp-action="Index">Home</a>
+</div>
 
 
 @section Header
