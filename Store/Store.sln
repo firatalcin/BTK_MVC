@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.APP", "Store.APP\Store.APP.csproj", "{B286F462-282F-429A-86CF-8A7E8CD43008}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Entities", "Store.Entities\Store.Entities.csproj", "{C7AD8D62-8B59-4134-9F96-6D40A3B7F5A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{B286F462-282F-429A-86CF-8A7E8CD43008}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B286F462-282F-429A-86CF-8A7E8CD43008}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B286F462-282F-429A-86CF-8A7E8CD43008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7AD8D62-8B59-4134-9F96-6D40A3B7F5A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7AD8D62-8B59-4134-9F96-6D40A3B7F5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7AD8D62-8B59-4134-9F96-6D40A3B7F5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7AD8D62-8B59-4134-9F96-6D40A3B7F5A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
