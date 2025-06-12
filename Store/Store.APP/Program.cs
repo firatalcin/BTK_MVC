@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using Store.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<RepositoryContext>(opt =>
+{
+    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("Store.APP"));
+});
 
 var app = builder.Build();
 
