@@ -1,0 +1,6 @@
+﻿namespace Store.Repositories.Contracts;
+
+public interface IRepositoryBase<T>
+{
+    IQueryable<T> FindAll(bool trackChanges);
+}
