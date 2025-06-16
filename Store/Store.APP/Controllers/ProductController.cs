@@ -19,11 +19,11 @@ namespace Store.APP.Controllers
             return View(model);
         }
 
-        // public IActionResult Get(int id)
-        // {
-        //     var product = _context.Products.Find(id);
-        //     return View(product);
-        // }
+        public IActionResult Get(int id)
+        {
+            var product = _repositoryManager.Product.GetOneProduct(id, false);
+            return View(product);
+        }
 
 
     }

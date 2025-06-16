@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Store.Repositories.Contracts;
 
 namespace Store.Repositories;
@@ -16,5 +17,12 @@ where T : class, new()
     public IQueryable<T> FindAll(bool trackChanges)
     {
         return trackChanges ? _context.Set<T>() : _context.Set<T>().AsNoTracking();
+    }
+
+    public T? FindByCondition(Expression<Func<T, bool>> predicate, bool trackChanges)
+    {
+        return trackChanges ? 
+            _context.Set<T>().SingleOrDefault(predicate) : 
+            _context.Set<T>().AsNoTracking().SingleOrDefault(predicate);
     }
 }

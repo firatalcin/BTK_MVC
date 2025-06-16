@@ -13,4 +13,9 @@ public class ProductRepository : RepositoryBase<Product>,IProductRepository
     {
         return FindAll(trackChanges);
     }
+
+    public Product? GetOneProduct(int id, bool trackChanges)
+    {
+        return FindByCondition(x => x.Id == id, trackChanges);
+    }
 }
