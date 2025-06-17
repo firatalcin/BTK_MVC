@@ -1,6 +1,8 @@
-﻿namespace Store.Repositories.Contracts;
+﻿using Store.Entities.Models;
 
-public interface ICategoryRepository
+namespace Store.Repositories.Contracts;
+
+public interface ICategoryRepository : IRepositoryBase<Category>
 {
     
 }

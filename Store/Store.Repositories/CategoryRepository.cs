@@ -1,6 +1,11 @@
-﻿namespace Store.Repositories;
+﻿using Store.Entities.Models;
+using Store.Repositories.Contracts;
 
-public class CategoryRepository
+namespace Store.Repositories;
+
+public class CategoryRepository : RepositoryBase<Category>, ICategoryRepository
 {
-    
+    public CategoryRepository(RepositoryContext context) : base(context)
+    {
+    }
 }
