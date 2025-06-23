@@ -20,4 +20,8 @@
       <ProjectReference Include="..\Store.Services\Store.Services.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Areas\Admin\" />
+    </ItemGroup>
+
 </Project>
