@@ -34,4 +34,12 @@ public class ProductManager : IProductService
         _repositoryManager.Product.CreateProduct(product);
         _repositoryManager.Save();
     }
+
+    public void UpdateOneProduct(Product product)
+    {
+        var entity = _repositoryManager.Product.GetOneProduct(product.Id, true);
+        entity.Name = product.Name;
+        entity.Price = product.Price;
+        _repositoryManager.Save();
+    }
 }

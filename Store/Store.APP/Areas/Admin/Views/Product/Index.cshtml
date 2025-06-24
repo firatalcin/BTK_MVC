@@ -25,8 +25,19 @@
             <tr>
                 <td>@product.Id</td>
                 <td>@product.Name</td>
-                <td>@product.Price</td>
-                <td>.</td>
+                <td>@product.Price.ToString("C")</td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-warning" asp-action="Update" asp-route-id="@product.Id">
+                            <i class="fa fa-edit"></i>
+                            Edit
+                        </a>
+                        <a class="btn btn-info" asp-action="get" asp-controller="Product" asp-area="" target="_blank" asp-route-id="@product.Id">
+                            <i class="fa fa-search"></i>
+                            Web
+                        </a>
+                    </div>
+                </td>
             </tr>
             
         }
