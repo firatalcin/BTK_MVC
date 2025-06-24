@@ -5,6 +5,9 @@
 </div>
 
 <form action="" method="post" asp-action="Create">
+    
+    <div class="text-danger" asp-validation-summary="All"></div>
+    
     <div class="form-group my-3">
         <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control" placeholder="Name">

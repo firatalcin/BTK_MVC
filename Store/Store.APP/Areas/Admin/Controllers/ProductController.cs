@@ -28,7 +28,12 @@ public class ProductController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult Create([FromForm] Product product)
-    { 
+    {
+        if (ModelState.IsValid)
+        {
+            _serviceManager.ProductService.CreateProduct(product);
+            return RedirectToAction("Index");
+        }
         return View();
     }
 }
