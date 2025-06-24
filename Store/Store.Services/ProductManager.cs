@@ -28,4 +28,10 @@ public class ProductManager : IProductService
         return product;
         
     }
+
+    public void CreateProduct(Product product)
+    {
+        _repositoryManager.Product.CreateProduct(product);
+        _repositoryManager.Save();
+    }
 }

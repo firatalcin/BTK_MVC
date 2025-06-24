@@ -25,4 +25,9 @@ where T : class, new()
             _context.Set<T>().SingleOrDefault(predicate) : 
             _context.Set<T>().AsNoTracking().SingleOrDefault(predicate);
     }
+
+    public void Create(T entity)
+    {
+        _context.Set<T>().Add(entity);
+    }
 }

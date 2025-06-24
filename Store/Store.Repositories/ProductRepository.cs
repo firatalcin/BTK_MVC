@@ -18,4 +18,9 @@ public class ProductRepository : RepositoryBase<Product>,IProductRepository
     {
         return FindByCondition(x => x.Id == id, trackChanges);
     }
+
+    public void CreateProduct(Product product)
+    {
+        Create(product);
+    }
 }
