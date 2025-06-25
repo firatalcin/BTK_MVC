@@ -42,4 +42,14 @@ public class ProductManager : IProductService
         entity.Price = product.Price;
         _repositoryManager.Save();
     }
+
+    public void DeleteOneProduct(int id)
+    {
+        var product = GetOneProduct(id, false);
+        if (product is not null)
+        {
+            _repositoryManager.Product.DeleteOneProduct(product);
+            _repositoryManager.Save();
+        }
+    }
 }

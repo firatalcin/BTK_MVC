@@ -7,4 +7,5 @@ public interface IRepositoryBase<T>
     IQueryable<T> FindAll(bool trackChanges);
     T? FindByCondition(Expression<Func<T, bool>> predicate, bool trackChanges);
     void Create(T entity);
+    void Remove(T entity);
 }

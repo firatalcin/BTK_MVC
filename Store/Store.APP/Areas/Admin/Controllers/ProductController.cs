@@ -55,4 +55,10 @@ public class ProductController : Controller
         
         return View();
     }
+
+    public IActionResult Delete([FromRoute(Name = "id")] int id)
+    {
+        _serviceManager.ProductService.DeleteOneProduct(id);
+        return RedirectToAction("Index");
+    }
 }
