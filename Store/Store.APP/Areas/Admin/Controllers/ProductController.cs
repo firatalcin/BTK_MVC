@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Store.Entities.Models;
 using Store.Services.Contracts;
 
@@ -22,6 +23,9 @@ public class ProductController : Controller
 
     public IActionResult Create()
     {
+        ViewBag.Categories = new SelectList( _serviceManager.CategoryService.GetAllCategories(false),"Id", "Name", "1"); 
+            
+           ;
         return View();
     }
     
