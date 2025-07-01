@@ -1,4 +1,5 @@
-﻿using Store.Entities.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Store.Entities.Models;
 using Store.Repositories.Contracts;
 
 namespace Store.Repositories;
@@ -27,5 +28,10 @@ public class ProductRepository : RepositoryBase<Product>,IProductRepository
     public void DeleteOneProduct(Product product)
     {
         Remove(product);
+    }
+
+    public void UpdateOneProduct(Product entity)
+    {
+        Update(entity);
     }
 }

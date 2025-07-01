@@ -24,10 +24,13 @@ public class ProductController : Controller
 
     public IActionResult Create()
     {
-        ViewBag.Categories = new SelectList( _serviceManager.CategoryService.GetAllCategories(false),"Id", "Name", "1"); 
-            
-           ;
+        ViewBag.Categories = GetCategoriesSelectList();
         return View();
+    }
+
+    private SelectList GetCategoriesSelectList()
+    {
+        return new SelectList( _serviceManager.CategoryService.GetAllCategories(false),"Id", "Name", "1");
     }
     
     [HttpPost]
@@ -44,17 +47,18 @@ public class ProductController : Controller
 
     public IActionResult Update([FromRoute(Name = "id")] int id)
     {
-        var model = _serviceManager.ProductService.GetOneProduct(id, false);
+        ViewBag.Categories = GetCategoriesSelectList();
+        var model = _serviceManager.ProductService.GetOneProductForUpdate(id, false);
         return View(model);
     }
     
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Update(Product product)
+    public IActionResult Update([FromForm] ProductDtoForUpdate productDto)
     {
         if (ModelState.IsValid)
         {
-            _serviceManager.ProductService.UpdateOneProduct(product);
+            _serviceManager.ProductService.UpdateOneProduct(productDto);
             return RedirectToAction("Index");
         }
         

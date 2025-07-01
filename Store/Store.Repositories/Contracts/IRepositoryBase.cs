@@ -8,4 +8,5 @@ public interface IRepositoryBase<T>
     T? FindByCondition(Expression<Func<T, bool>> predicate, bool trackChanges);
     void Create(T entity);
     void Remove(T entity);
+    void Update(T entity);
 }

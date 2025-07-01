@@ -41,11 +41,15 @@ public class ProductManager : IProductService
         _repositoryManager.Save();
     }
 
-    public void UpdateOneProduct(Product product)
+    public void UpdateOneProduct(ProductDtoForUpdate productDtoForUpdate)
     {
-        var entity = _repositoryManager.Product.GetOneProduct(product.Id, true);
-        entity.Name = product.Name;
-        entity.Price = product.Price;
+        //var entity = _repositoryManager.Product.GetOneProduct(productDtoForUpdate.Id, true);
+        // entity.Name = productDtoForUpdate.Name;
+        // entity.Price = productDtoForUpdate.Price;
+        // entity.CategoryId = productDtoForUpdate.CategoryId;
+        
+        var entity = _mapper.Map<Product>(productDtoForUpdate);
+        _repositoryManager.Product.UpdateOneProduct(entity);
         _repositoryManager.Save();
     }
 
@@ -57,5 +61,12 @@ public class ProductManager : IProductService
             _repositoryManager.Product.DeleteOneProduct(product);
             _repositoryManager.Save();
         }
+    }
+
+    public ProductDtoForUpdate GetOneProductForUpdate(int id, bool trackChanges)
+    {
+        var product = GetOneProduct(id, trackChanges);
+        var productDto = _mapper.Map<ProductDtoForUpdate>(product);
+        return productDto;
     }
 }
