@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Store.Entities.Dtos;
 using Store.Entities.Models;
 using Store.Services.Contracts;
 
@@ -31,11 +32,11 @@ public class ProductController : Controller
     
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Create([FromForm] Product product)
+    public IActionResult Create([FromForm] ProductDtoForInsertion productDtoForInsertion)
     {
         if (ModelState.IsValid)
         {
-            _serviceManager.ProductService.CreateProduct(product);
+            _serviceManager.ProductService.CreateProduct(productDtoForInsertion);
             return RedirectToAction("Index");
         }
         return View();
