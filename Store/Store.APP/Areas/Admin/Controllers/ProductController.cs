@@ -35,10 +35,18 @@ public class ProductController : Controller
     
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Create([FromForm] ProductDtoForInsertion productDtoForInsertion)
+    public async Task<IActionResult> Create([FromForm] ProductDtoForInsertion productDtoForInsertion, IFormFile file)
     {
         if (ModelState.IsValid)
         {
+            //file operation
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot","images", file.FileName);
+            using(var  stream = new FileStream(path, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+            
+            productDtoForInsertion.ImageUrl = string.Concat("/images/", file.FileName);
             _serviceManager.ProductService.CreateProduct(productDtoForInsertion);
             return RedirectToAction("Index");
         }
