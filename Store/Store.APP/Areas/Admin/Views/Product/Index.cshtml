@@ -14,6 +14,7 @@
         <thead>
         <tr>
             <th>Id</th>
+            <th>ImageUrl</th>
             <th>Name</th>
             <th>Price</th>
             <th>Operations</th>
@@ -24,6 +25,9 @@
         {
             <tr>
                 <td>@product.Id</td>
+                <td>
+                    <img class="border border-light rounded" src="@product?.ImageUrl" alt="@product.Name" width="50"/>
+                </td>
                 <td>@product.Name</td>
                 <td>@product.Price.ToString("C")</td>
                 <td>

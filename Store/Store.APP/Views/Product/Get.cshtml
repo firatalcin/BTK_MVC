@@ -1,7 +1,18 @@
 ﻿@model Product
 
-<h3>@Model.Name</h3>
-<p>@Model.Price</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="text-center">
+            <h6 class="display-6">
+                @Model.Name
+            </h6>
+
+            <img class="img-fluid shadow rounded-3 my-3" src="@Model?.ImageUrl" alt="@Model.Name">
+            
+            <p class="lead text-danger">@Model.Price.ToString("C")</p>
+        </div>
+    </div>
+</div>
 
 <div class="btn-group">
     <a class="btn btn-primary" asp-controller="Product" asp-action="Index">Products</a>
