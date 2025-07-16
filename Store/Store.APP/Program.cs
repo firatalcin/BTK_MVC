@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Store.Entities.Models;
 using Store.Repositories;
 using Store.Repositories.Contracts;
 using Store.Services;
@@ -23,6 +24,8 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<IServiceManager, ServiceManager>();
+
+builder.Services.AddSingleton<Cart>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
