@@ -16,6 +16,9 @@ builder.Services.AddDbContext<RepositoryContext>(opt =>
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("Store.APP"));
 });
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
+
 //Repositories
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
@@ -42,6 +45,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSession();
 app.UseRouting();
 app.UseAuthorization();
 
