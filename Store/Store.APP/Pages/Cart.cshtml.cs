@@ -23,7 +23,7 @@ namespace Store.APP.Pages
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
-            //Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
+            // Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
         }
 
         public IActionResult OnPost(int productId, string returnUrl)
@@ -34,18 +34,18 @@ namespace Store.APP.Pages
 
             if(product is not null)
             {
-                //Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
+                // Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
                 Cart.AddItem(product,1);
-                //HttpContext.Session.SetJson<Cart>("cart", Cart);
+                // HttpContext.Session.SetJson<Cart>("cart",Cart);
             }
-            return Page(); // returnUrl
+            return RedirectToPage(new { returnUrl = returnUrl}); // returnUrl
         }
 
         public IActionResult OnPostRemove(int id, string returnUrl)
         {
-            //Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
+            // Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
             Cart.RemoveLine(Cart.Lines.First(cl => cl.Product.Id.Equals(id)).Product);
-            //HttpContext.Session.SetJson<Cart>("cart", Cart);
+            // HttpContext.Session.SetJson<Cart>("cart",Cart);
             return Page(); 
         }
     }
